@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+        *, *::before, *::after{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Oswald", sans-serif;
+
+        }
+
+        li{
+            list-style-type: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url(./lukasz-szmigiel-ps2daRcXYes-unsplash.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            
+            height: 100vh;
+            position: relative;
+        }
+        body::before{
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.764);
+            z-index: -1;
+        }
+        main{
+           
+            width: 60%;
+            text-align: center;
+            color: white;
+            font-size: 3rem;
+
+
+        }
+    </style>
+</head>
+<body>
+    <main>
+      
+    </main>
+</body>
+<script>
+    let main_body = document.querySelector("main")
+
+    fetch('https://jh38zmqs44.execute-api.ap-south-1.amazonaws.com/dev') // api for the get request
+    .then(response => response.json())
+    .then(data => {
+        main_body.innerText = `${data.body}\n-${data.name}`
+    });
+
+</script>
+</html>
